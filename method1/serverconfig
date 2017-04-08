@@ -1,35 +1,36 @@
-sudo apt-get update && sudo apt-get -y upgrade
+# On the server:
+$ sudo apt-get update && sudo apt-get -y upgrade
+$ sudo useradd -d /home/deploy -m deploy
+$ sudo passwd deploy
 
-
-sudo useradd -d /home/deploy -m deploy
-
-
-sudo passwd deploy
-
-
+$ sudo visudo
+# Paste string: 
 deploy ALL=(ALL:ALL) ALL
 
+$ su - deploy
+$ ssh-keygen
+$ cat .ssh/id_rsa.pub
+# Copy file content to GitHub->Setting->SSH and GPG keys
 
-su - deploy
-ssh-keygen
+# On the local mashine:
+$ cat .ssh/id_rsa.pub
 
-cat .ssh/id_rsa.pub
+# Copy content (public key) to server by using:
+$ nano .ssh/authorized_keys
 
-nano .ssh/authorized_keys
+$ sudo apt-get install git
+$ sudo apt-get install nginx
 
-sudo apt-get install git
+# On the server open file:
+$ sudo nano /etc/nginx/sites-available/default
+# Comment all strings
 
-sudo nano /etc/nginx/sites-available/default
+$ sudo apt-get install postgresql postgresql-contrib libpq-dev
+$ sudo -u postgres createuser -s basecamp3-rails-chatbot
+$ sudo -u postgres psql
 
-sudo apt-get install postgresql postgresql-contrib libpq-dev
-
-
-sudo -u postgres createuser -s urlshortner
-
-sudo -u postgres psql
-
-postgres=# \password urlshortner
-
+# In psql console (postgres=#):
+\password basecamp3-rails-chatbot
 
 sudo -u postgres createdb -O urlshortner urlshortner_production
 
