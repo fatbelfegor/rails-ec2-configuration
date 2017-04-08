@@ -32,24 +32,21 @@ $ sudo -u postgres psql
 # In psql console (postgres=#):
 \password basecamp3-rails-chatbot
 
-sudo -u postgres createdb -O urlshortner urlshortner_production
+$ sudo -u postgres createdb -O urlshortner urlshortner_production
+$ su - deploy
+$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+$ \curl -sSL https://get.rvm.io | bash -s stable
 
+# Logout and login again as "deploy"
+$ rvm install 2.3.1
+$ source /home/deploy/.rvm/scripts/rvm
 
-su - deploy
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable
+$ gem install bundler --no-ri --no-rdoc
+# Instal JS runtime (nodeJS)
+$curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+$sudo apt-get install -y nodejs
 
-
-
-rvm install 2.2.3
-
-
-gem install bundler --no-ri --no-rdoc
-
-
-mkdir urlshortner
-mkdir -p urlshortner/shared/config
-nano urlshortner/shared/config/database.yml
-
-
-nano urlshortner/shared/config/application.yml
+$ mkdir basecamp_chatbot
+$ mkdir -p basecamp_chatbot/shared/config
+$ nano basecamp_chatbot/shared/config/database.yml
+$ nano basecamp_chatbot/shared/config/application.yml
