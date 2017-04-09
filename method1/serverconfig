@@ -24,6 +24,7 @@ $ sudo apt-get install nginx
 # On the server open file:
 $ sudo nano /etc/nginx/sites-available/default
 # Comment all strings
+# Copy and paste config from 'rails-ec2-configuration/method1/nginx'
 
 $ sudo apt-get install postgresql postgresql-contrib libpq-dev
 $ sudo -u postgres createuser -s basecamp3-rails-chatbot
