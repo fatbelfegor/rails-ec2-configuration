@@ -20,8 +20,9 @@ $ nano .ssh/authorized_keys
 
 $ sudo apt-get install git
 $ sudo apt-get install nginx
+$ sudo rm /etc/nginx/sites-available/default
 
-# On the server open file:
+# On the server open file (new):
 $ sudo nano /etc/nginx/sites-available/default
 # Comment all strings
 # Copy and paste config from 'rails-ec2-configuration/method1/nginx'
