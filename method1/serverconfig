@@ -49,5 +49,7 @@ $ sudo apt-get install -y nodejs
 
 $ mkdir basecamp3-rails-chatbot
 $ mkdir -p basecamp3-rails-chatbot/shared/config
+# Add database credentials (look at method1/database.yml)
 $ nano basecamp3-rails-chatbot/shared/config/database.yml
+# Add "secret" key
 $ nano basecamp3-rails-chatbot/shared/config/application.yml
