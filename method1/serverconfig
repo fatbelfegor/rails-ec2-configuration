@@ -45,7 +45,6 @@ $ source /home/deploy/.rvm/scripts/rvm
 
 $ gem install bundler --no-ri --no-rdoc
 # Instal JS runtime (nodeJS)
-$ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 
 $ mkdir basecamp3-rails-chatbot
